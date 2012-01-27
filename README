@@ -1,0 +1,35 @@
+/*global jQuery */
+/*!  
+* Bacon.jQuery.js 1.0
+*
+* Copyright 2011, David Hudson http://davidhudson.me
+*/
+
+Add jQuery (latest version) and Bacon.jQuery.js to your site 
+header then use code similar to examples below. Whichever elements
+you baconize, make sure they have a defined height or Bacon will 
+not work. If you dig this plugin, drop me a line sometime and let
+me know how you used it. If it's sexy, I'll post it up on the 
+Bacon homepage. 
+
+Last thing, I make no promises on support :) Tweet me and I'll do
+my best to get back to you.
+
+$(document).ready(function() {
+  $(".baconMe").bacon({
+          'type' : 'bezier',
+          'c1' : { x : 10,        y : 0  },
+          'c2' : { x : -115,      y : 170 },
+          'c3' : { x : 35,        y : 340 },
+          'c4' : { x : 15,        y : 480 },
+          'align'  : 'right'
+      }
+  );
+   
+  $(".baconLine").bacon({
+          'type' : 'line',
+          'step'      : 5,
+          'align'     : 'right'
+      }
+  );
+});
