@@ -1,0 +1,10 @@
+.line, .line_content {
+	position:absolute;
+	text-align:justify;
+}
+
+.line_content:after {
+	content: "";
+	display: inline-block;
+	width: 100%;
+}
