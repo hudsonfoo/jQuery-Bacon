@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+	<title>It's Bacon! A jQuery plugin that allows you to wrap text around a bezier curve or a line.</title>	
+	<link rel="stylesheet" type="text/css" href="bacon.jquery.css" media="screen" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="bacon.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#single_bezier_right").bacon({
+				'type' : 'bezier',
+				'c1' : { x : 10,       	y : 0  	},
+				'c2' : { x : -115,    	y : 200 },
+				'c3' : { x : -115,        	y : 400 },
+				'c4' : { x : 10,        	y : 600 },
+				'align'  : 'right'
+			});
+			
+			$("#single_bezier_left").bacon({
+				'type' : 'bezier',
+				'c1' : { x : 10,        	y : 0  	},
+				'c2' : { x : -115,      	y : 170 },
+				'c3' : { x : 35,        	y : 340 },
+				'c4' : { x : 15,        	y : 480 },
+				'align'  : 'left'
+			});
+			
+			$("#dual_bezier").bacon({
+				type	:	'dualbezier',
+				c1	:	{	x	:	0, 		y	:	0			},
+				c2	:	{	x	:	80, 		y	:	400		},
+				c3	:	{	x	:	-120, 	y	:	800		},
+				c4	:	{	x	:	50, 		y	:	1250	},
+				d1	:	{	x	:	120 	},
+				d2	:	{	x	:	80		},
+				d3	:	{	x	:	290 	},
+				d4	:	{	x	:	50 		}
+			});
+			
+			$("#single_line_right").bacon({
+				'type' : 'line',
+				'step'      : 5,
+				'align'     : 'right'
+			});
+			
+			$("#single_line_left").bacon({
+				'type' : 'line',
+				'step'      : 5,
+				'align'     : 'left'
+			});
+		});
+	</script>
+	<style>
+		body {
+			font-family:sans-serif;
+			background-color:#f1f1f1;
+		}
+		
+		#wrapper {
+			position:relative;
+			width:960px;
+			margin:0 auto;
+			background-color:#ffffff;
+			border: 1px solid #aaa;
+		}
+		
+		#container {
+			position:relative;
+			width:698px;
+			padding:10px;
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="container">
+			<h1>BACON!</h1>
+			<h2>Single Bezier Right</h2>
+			<div id="single_bezier_right" style="height:650px;">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+			</div>
+			<h2>Single Bezier Left</h2>
+			<div id="single_bezier_left" style="height:710px;">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+			</div>
+			<h2>Dual Bezier</h2>
+			<div id="dual_bezier" style="height:900px">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+			</div>
+			<h2>Single Line Right</h2>
+			<div id="single_line_right" style="height:800px">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+			</div>
+			<h2>Single Line Left</h2>
+			<div id="single_line_left" style="height:800px">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
