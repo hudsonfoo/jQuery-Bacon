@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>It's Bacon! A jQuery plugin that allows you to wrap text around a bezier curve or a line.</title>	
 	<link rel="stylesheet" type="text/css" href="bacon.jquery.css" media="screen" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -48,6 +49,22 @@
 				'step'      : 5,
 				'align'     : 'left'
 			});
+			
+			var parentWidth = $("#dual_bezier_circle").width(),
+				parentHeight = $("#dual_bezier_circle").height();
+			$("#dual_bezier_circle").bacon({
+				type: 'dualbezier',
+				skipHeight: 100,
+				c1	:	{	x:	parentWidth / 3,	y	:	0					},
+				c2	:	{	x:	-parentWidth / 16,	y	:	parentHeight / 3.5	},
+				c3	:	{	x:	-parentWidth / 16,	y	:	parentHeight / 1.5	},
+				c4	:	{	x:	parentWidth / 2.5,	y	:	parentHeight		},
+
+				d1	:	{	x:	parentWidth / 3		},
+				d2	:	{	x:	-parentWidth / 16	},
+				d3	:	{	x:	-parentWidth / 16	},
+				d4	:	{	x:	parentWidth / 2.5	}
+			});
 		});
 	</script>
 	<style>
@@ -69,6 +86,11 @@
 			width:698px;
 			padding:10px;
 			margin:0 auto;
+		}
+		
+		#dual_bezier_circle {
+			border-radius: 50%;
+			border: solid 1px;
 		}
 	</style>
 </head>
@@ -100,6 +122,10 @@
 			<div id="single_line_left" style="height:800px">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
+			</div>
+			<h2>Circle</h2>
+			<div id="dual_bezier_circle" style="height:400px; width:400px;">
+				Съешь ещё этих мягких французских булок. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut ultricies urna. Quisque lorem leo, tincidunt eget mollis nec, tincidunt at nisi. Praesent ut velit nec ante vulputate pretium. In iaculis diam eget sapien dapibus imperdiet. Sed vehicula, leo eu molestie molestie, diam lectus tempus sem, sed auctor sapien leo et leo. Aliquam erat volutpat. Proin feugiat scelerisque nunc, vitae porta urna varius non. Donec blandit vehicula arcu, cursus mollis ipsum pulvinar vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam diam lacus, malesuada ut semper nec, facilisis ut leo. Quisque mattis orci eget dui lacinia volutpat. In sodales accumsan fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae orci nibh, ac egestas nulla. Integer suscipit nisl nec risus elementum lacinia. Sed quis nibh quis justo sagittis auctor.
 			</div>
 		</div>
 	</div>
