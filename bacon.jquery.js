@@ -27,7 +27,8 @@
 	
 	$.fn.bacon = function( options ) { 
 		var settings = $.extend( {
-		  'text-align'	: 'justify'
+		  'text-align'	: 'justify',
+            'skipHeight': 0 // Defines the height in pixels from top that will be skipped
 		}, options);
 		
 		var textNodes, // all textNodes (as opposed to elements)
@@ -38,6 +39,11 @@
 			linesUsed = 0, // Number of lines actually used after splitting everything up
 			styleAttr; // Backup of the element's style attribute
 		
+        // Just return if no element found
+        if (!el || !el.length) {
+            return el;
+        }
+
 		// Create a relatively positioned container to work in
 		var $this = $("<div></div>").css('position', 'relative').width('100%').height('100%');
 		
@@ -96,7 +102,14 @@
 		
 		// We've created our empty lines, now we need to fill them.		
 		// Set the starting line
-		currentLine = $(".line:first", $this);	
+        // Skip lines that lays above skipping height
+        if (options.skipHeight) {
+            var skippingLinesCount = Math.round(options.skipHeight / lineHeight);
+            console.log(options.skipHeight, lineHeight, skippingLinesCount);
+            currentLine = $(".line", $this).slice(skippingLinesCount).first();
+        } else {
+			currentLine = $(".line:first", $this);
+		}
 		
 		recurseThroughNodes = function (currentNode, copyNode) {
 			$(copyNode).contents().each(function () {
@@ -146,7 +159,7 @@
 		// Split each textNode into individual textNodes, one for each
 		// word
 		textNodes.each(function (index, lastNode) {
-			var startOfWord = /\W\b/,
+			var startOfWord = /[^A-Za-z0-9_\u0410-\u044f][A-Za-z0-9_\u0410-\u044f]+/,
 				result;
 			while (startOfWord.exec(lastNode.nodeValue) !== null) {
 				result = startOfWord.exec(lastNode.nodeValue);
@@ -167,7 +180,7 @@
 		var totalLinesHeight = 0;
 		$(".line", $this).each(function() {
 			$(this).css('top', totalLinesHeight + 'px');
-			totalLinesHeight += $('.line_content', this).height();
+			totalLinesHeight += lineHeight;
 			$('.line_content', this).append(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
 		});
 	}
